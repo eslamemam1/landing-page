@@ -23,6 +23,7 @@
  * 
 */
 
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -39,7 +40,14 @@
 */
 
 // build the nav
+// this is the ul variable 
+const list = document.querySelector('#navbar__list');
 
+for (let i = 0 ; i <= sections.length ; i++) {
+    const itemForList = document.createElement('li');
+    itemForList.textContent = `Section ${i}`
+    list.appendChild(itemForList);
+}
 
 // Add class 'active' to section when near top of viewport
 
@@ -50,7 +58,7 @@
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu 
@@ -59,5 +67,3 @@
 
 // Set sections as active
 
-
-console.log('s')
