@@ -23,7 +23,9 @@
  * 
 */
 
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('[data-nav]');
+
+//console.log(sections[1].getAttribute('data-nav'))
 
 /**
  * End Global Variables
@@ -43,12 +45,18 @@ const sections = document.querySelectorAll('section');
 // this is the ul variable 
 const list = document.querySelector('#navbar__list');
 
-for (let i = 0 ; i <= sections.length ; i++) {
-    const itemForList = document.createElement('li');
-    itemForList.textContent = `Section ${i}`
-    itemForList.classList.add('menu__link')
-    list.appendChild(itemForList);
-}
+document.addEventListener('DOMContentLoaded', function () {
+    if (sections) {
+        for (let i = 0; i < sections.length; i++) {
+            const itemForList = document.createElement('li');
+            itemForList.textContent = sections[i].getAttribute('data-nav');;
+            itemForList.classList.add('menu__link')
+            list.appendChild(itemForList);
+        }
+    } else {
+        console.error('error the element not found')
+    }
+})
 
 // Add class 'active' to section when near top of viewport
 
