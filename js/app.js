@@ -46,6 +46,7 @@ const list = document.querySelector('#navbar__list');
 for (let i = 0 ; i <= sections.length ; i++) {
     const itemForList = document.createElement('li');
     itemForList.textContent = `Section ${i}`
+    itemForList.classList.add('menu__link')
     list.appendChild(itemForList);
 }
 
