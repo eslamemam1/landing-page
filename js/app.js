@@ -113,13 +113,13 @@ window.addEventListener('scroll', () => {
 });
 
 document.addEventListener('scroll' , ()=>{
-    const nav = document.querySelector('.navbar__menu');
     let scrolling ;
+    const nav = document.querySelector('.navbar__menu');
     nav.style.display = 'block' ;
     window.clearTimeout(scrolling);
     scrolling = setTimeout(()=>{
         nav.style.display = 'none' ;
-    },1000)
+    },2000)
 })
 
 
