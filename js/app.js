@@ -112,14 +112,20 @@ window.addEventListener('scroll', () => {
     }
 });
 
-document.addEventListener('scroll' , ()=>{
-    let scrolling ;
-    const nav = document.querySelector('.navbar__menu');
-    nav.style.display = 'block' ;
+const nav = document.querySelector('.navbar__menu');
+
+let scrolling;
+
+document.addEventListener('scroll', () => {
+    if (window.scrollY < 200) {
+        nav.style.display = 'block';
+        return;
+    }
+    nav.style.display = 'block';
     window.clearTimeout(scrolling);
-    scrolling = setTimeout(()=>{
-        nav.style.display = 'none' ;
-    },2000)
+    scrolling = setTimeout(() => {
+        nav.style.display = 'none';
+    }, 2000)
 })
 
 
