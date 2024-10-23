@@ -33,20 +33,22 @@ const sections = document.querySelectorAll('[data-nav]');
 //console.log(sections[1].getAttribute('data-nav').replaceAll(' ',''))
 //console.log(sections[1].getAttribute('data-nav'))
 
-function mackActive(){
+
+// Add class 'active' to section when near top of viewport
+function mackActive() {
     for (const section of sections) {
         const viwe = section.getBoundingClientRect();
-        if(viwe.top <= '150' && viwe.bottom >= '150'){
+        if (viwe.top <= '150' && viwe.bottom >= '150') {
             //console.log(viwe)
             //console.log(section.getAttribute('data-nav'))
             section.classList.add('your-active-class')
-        }else(
+        } else (
             section.classList.remove('your-active-class')
         )
     }
 }
 
-document.addEventListener('scroll' , mackActive) ;
+document.addEventListener('scroll', mackActive);
 
 /**
  * End Helper Functions
@@ -54,12 +56,12 @@ document.addEventListener('scroll' , mackActive) ;
  * 
 */
 
-// build the nav
 // this is the ul variable 
 const list = document.querySelector('#navbar__list');
 
 document.addEventListener('DOMContentLoaded', function () {
     if (sections) {
+        // build the nav
         for (let i = 0; i < sections.length; i++) {
             // list items
             const itemForList = document.createElement('li');
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const anchorLink = document.createElement('a');
             // value for data attribut 
             const value = sections[i].getAttribute('data-nav');
-            anchorLink.setAttribute('href' , `#section${i + 1 }`) //value.replaceAll(' ','')
+            anchorLink.setAttribute('href', `#section${i + 1}`) //value.replaceAll(' ','')
             itemForList.textContent = value;
             // add class menu
             itemForList.classList.add('menu__link')
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             anchorLink.addEventListener('click', function (e) {
                 console.log(e.target)
                 //.classList.add('your-active-class')
-                
+
             })
         }
     } else {
@@ -88,10 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-// Add class 'active' to section when near top of viewport
-
 
 // Scroll to anchor ID using scrollTO event
+
+const mainTag = document.querySelector('main');
+const btn = document.createElement('button');
+btn.textContent = 'Top';
+btn.classList.add('btn');
+mainTag.appendChild(btn);
+btn.addEventListener('click', () => {
+    document.body.scrollTop = 0;
+})
 
 
 /**
