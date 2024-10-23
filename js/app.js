@@ -102,6 +102,26 @@ btn.addEventListener('click', () => {
     document.body.scrollTop = 0;
 })
 
+// show the button when scroll 
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+        btn.classList.add('bntShow');
+    } else {
+        btn.classList.remove('bntShow');
+    }
+});
+
+document.addEventListener('scroll' , ()=>{
+    const nav = document.querySelector('.navbar__menu');
+    let scrolling ;
+    nav.style.display = 'block' ;
+    window.clearTimeout(scrolling);
+    scrolling = setTimeout(()=>{
+        nav.style.display = 'none' ;
+    },1000)
+})
+
 
 /**
  * End Main Functions

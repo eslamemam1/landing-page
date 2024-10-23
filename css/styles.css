@@ -240,7 +240,13 @@ section.your-active-class .landing__container::after {
     z-index: 100;
     right: 20px;
     bottom: 60px;
+    display: none;
 }
 .bntShow{
     display: block;
+}
+
+.btn:hover{
+    background-color: #333;
+    color: white;
 }
