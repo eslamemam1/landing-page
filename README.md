@@ -2,8 +2,11 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+in this project im using the js to handel the html element and create a new element usnig js code in js folder and js file .
 
-To get started, open `js/app.js` and start building out the app's functionality
+i create element using createElement method and using appendChild method .
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+i creacte in this project more function to help when i scroll can i access the view port and add class to element in view port to mack it active this function named mackActive this function run when the i using scroll .
+
+
+
