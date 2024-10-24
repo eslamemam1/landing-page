@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemForList = document.createElement('li');
             // anchor
             const anchorLink = document.createElement('a');
-            anchorLink.style = 'text-decoration : none ' ;
+            anchorLink.style = 'text-decoration : none ; color : black ' ;
 
             anchorLink.addEventListener('mouseover' , ()=>{
                 anchorLink.style.color = "#fff"
