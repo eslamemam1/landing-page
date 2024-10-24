@@ -30,7 +30,6 @@
 
 
 const sections = document.querySelectorAll('[data-nav]');
-const navItems = document.querySelectorAll(' ul li a')
 //console.log(sections[1].getAttribute('data-nav').replaceAll(' ',''))
 //console.log(sections[1].getAttribute('data-nav'))
 
@@ -43,11 +42,8 @@ function mackActive() {
             //console.log(viwe)
             //console.log(section.getAttribute('data-nav'))
             section.classList.add('your-active-class')
-            //navItems[index].classList.add('your-active-class')
         } else {
-            section.classList.remove('your-active-class');
-            //navItems[index].classList.remove('your-active-class')
-            
+            section.classList.remove('your-active-class');        
         }
     })
 }
@@ -71,6 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemForList = document.createElement('li');
             // anchor
             const anchorLink = document.createElement('a');
+            anchorLink.style = 'text-decoration : none ' ;
+
+            anchorLink.addEventListener('mouseover' , ()=>{
+                anchorLink.style.color = "#fff"
+            })
+            anchorLink.addEventListener('mouseout' , ()=>{
+                anchorLink.style.color = "black"
+            })
+
             // value for data attribut 
             const value = sections[i].getAttribute('data-nav');
             anchorLink.setAttribute('href', `#section${i + 1}`) //value.replaceAll(' ','')
