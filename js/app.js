@@ -36,14 +36,14 @@ const sections = document.querySelectorAll('[data-nav]');
 
 // Add class 'active' to section when near top of viewport
 function mackActive() {
-    sections.forEach((section) =>{
+    sections.forEach((section) => {
         const viwe = section.getBoundingClientRect();
         if (viwe.top <= '150') { // && viwe.bottom >= '150'
             //console.log(viwe)
             //console.log(section.getAttribute('data-nav'))
             section.classList.add('your-active-class')
         } else {
-            section.classList.remove('your-active-class');        
+            section.classList.remove('your-active-class');
         }
     })
 }
@@ -67,12 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const itemForList = document.createElement('li');
             // anchor
             const anchorLink = document.createElement('a');
-            anchorLink.style = 'text-decoration : none ; color : black ' ;
 
-            anchorLink.addEventListener('mouseover' , ()=>{
+            anchorLink.style = 'text-decoration : none ; color : black ';
+
+            anchorLink.addEventListener('mouseover', () => {
                 anchorLink.style.color = "#fff"
             })
-            anchorLink.addEventListener('mouseout' , ()=>{
+            anchorLink.addEventListener('mouseout', () => {
                 anchorLink.style.color = "black"
             })
 
@@ -86,16 +87,22 @@ document.addEventListener('DOMContentLoaded', function () {
             itemForList.appendChild(anchorLink);
             // append the list items tag in the menu
             list.appendChild(itemForList);
+
             // add event 
             anchorLink.addEventListener('click', function (e) {
                 //console.log(e.target)
                 e.preventDefault();
+                // Remove 'active' class 
+                const allLinks = document.querySelectorAll('.menu__link a');
+                allLinks.forEach(link => link.classList.remove('active'));
+                // Add 'active' class
+                anchorLink.classList.add('active');
                 const att = this.getAttribute('href');
-                const topS = document.querySelector(att).offsetTop ;
+                const topS = document.querySelector(att).offsetTop;
                 // console.log(att)
                 window.scrollTo({
-                    top : topS ,
-                    behavior : 'smooth'
+                    top: topS,
+                    behavior: 'smooth'
                 })
             })
         }
@@ -108,16 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  const menuLink = document.querySelectorAll('a')
-  console.log(menuLink)
-  
-  for (const link of menuLink) {
-    link.addEventListener('click' , ()=>{
-        menuLink.forEach(item => item.classList.remove('active'))
-        this.classList.add('active')
-    })
-}
- 
+
+
 
 
 // Scroll to anchor ID using scrollTO event
@@ -130,8 +129,8 @@ mainTag.appendChild(btn);
 
 btn.addEventListener('click', () => {
     window.scrollTo({
-        top : 0 ,
-        behavior : 'smooth'
+        top: 0,
+        behavior: 'smooth'
     })
 })
 
