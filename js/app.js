@@ -106,17 +106,18 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-/**
- * const menuLink = document.querySelectorAll('.menu__link')
- * 
- * for (const link of menuLink) {
+
+
+  const menuLink = document.querySelectorAll('a')
+  console.log(menuLink)
+  
+  for (const link of menuLink) {
     link.addEventListener('click' , ()=>{
-        window.scrollTo({
-            behavior : 'smooth'
-        })
+        menuLink.forEach(item => item.classList.remove('active'))
+        this.classList.add('active')
     })
 }
- */
+ 
 
 
 // Scroll to anchor ID using scrollTO event
