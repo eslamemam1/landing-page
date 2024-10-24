@@ -30,22 +30,26 @@
 
 
 const sections = document.querySelectorAll('[data-nav]');
+const navItems = document.querySelectorAll(' ul li a')
 //console.log(sections[1].getAttribute('data-nav').replaceAll(' ',''))
 //console.log(sections[1].getAttribute('data-nav'))
 
 
 // Add class 'active' to section when near top of viewport
 function mackActive() {
-    for (const section of sections) {
+    sections.forEach((section) =>{
         const viwe = section.getBoundingClientRect();
-        if (viwe.top <= '150' && viwe.bottom >= '150') {
+        if (viwe.top <= '150') { // && viwe.bottom >= '150'
             //console.log(viwe)
             //console.log(section.getAttribute('data-nav'))
             section.classList.add('your-active-class')
-        } else (
-            section.classList.remove('your-active-class')
-        )
-    }
+            //navItems[index].classList.add('your-active-class')
+        } else {
+            section.classList.remove('your-active-class');
+            //navItems[index].classList.remove('your-active-class')
+            
+        }
+    })
 }
 
 document.addEventListener('scroll', mackActive);
@@ -70,18 +74,24 @@ document.addEventListener('DOMContentLoaded', function () {
             // value for data attribut 
             const value = sections[i].getAttribute('data-nav');
             anchorLink.setAttribute('href', `#section${i + 1}`) //value.replaceAll(' ','')
-            itemForList.textContent = value;
+            anchorLink.textContent = value;
             // add class menu
             itemForList.classList.add('menu__link')
             // append the list items tag in the anchor link
-            anchorLink.appendChild(itemForList);
+            itemForList.appendChild(anchorLink);
             // append the list items tag in the menu
-            list.appendChild(anchorLink);
+            list.appendChild(itemForList);
             // add event 
             anchorLink.addEventListener('click', function (e) {
-                console.log(e.target)
-                //.classList.add('your-active-class')
-
+                //console.log(e.target)
+                e.preventDefault();
+                const att = this.getAttribute('href');
+                const topS = document.querySelector(att).offsetTop ;
+                // console.log(att)
+                window.scrollTo({
+                    top : topS ,
+                    behavior : 'smooth'
+                })
             })
         }
     } else {
@@ -89,6 +99,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 })
+
+
+/**
+ * const menuLink = document.querySelectorAll('.menu__link')
+ * 
+ * for (const link of menuLink) {
+    link.addEventListener('click' , ()=>{
+        window.scrollTo({
+            behavior : 'smooth'
+        })
+    })
+}
+ */
 
 
 // Scroll to anchor ID using scrollTO event
