@@ -98,8 +98,12 @@ const btn = document.createElement('button');
 btn.textContent = 'Top';
 btn.classList.add('btn');
 mainTag.appendChild(btn);
+
 btn.addEventListener('click', () => {
-    document.body.scrollTop = 0;
+    window.scrollTo({
+        top : 0 ,
+        behavior : 'smooth'
+    })
 })
 
 // show the button when scroll 
