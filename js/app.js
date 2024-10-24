@@ -28,11 +28,9 @@
  * 
 */
 
-
 const sections = document.querySelectorAll('[data-nav]');
 //console.log(sections[1].getAttribute('data-nav').replaceAll(' ',''))
 //console.log(sections[1].getAttribute('data-nav'))
-
 
 // Add class 'active' to section when near top of viewport
 function mackActive() {
@@ -93,8 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 //console.log(e.target)
                 e.preventDefault();
                 // Remove 'active' class 
-                const allLinks = document.querySelectorAll('.menu__link a');
-                allLinks.forEach(link => link.classList.remove('active'));
+                const links = document.querySelectorAll('a');
+                for (const link of links) {
+                    link.classList.remove('active')
+                }
                 // Add 'active' class
                 anchorLink.classList.add('active');
                 const att = this.getAttribute('href');
@@ -109,7 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error('error the element not found')
     }
-
 })
 
 
