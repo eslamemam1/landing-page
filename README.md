@@ -18,5 +18,6 @@ A Landing Page Project created to Practice JavaScript .
 * i creacte in this project more function to help when i scroll can i access the view port and add class to element in view port to mack it active this function named mackActive this function run when the i using scroll .
 
 **Live Demo:**
-[Landing Page] (https://eslamemam1.github.io/landing-page/)
+
+- Landing Page (https://eslamemam1.github.io/landing-page/)
 
