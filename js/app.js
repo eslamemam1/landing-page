@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
             // anchor
             const anchorLink = document.createElement('a');
 
-            anchorLink.style = 'text-decoration : none ; color : black ';
+           // anchorLink.style = ' color : black ; padding : 1rem ';
+            anchorLink.style.textDecoration = 'none' ;
+            anchorLink.style.color = 'black' ;
 
             anchorLink.addEventListener('mouseover', () => {
                 anchorLink.style.color = "#fff"
@@ -110,13 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('error the element not found')
     }
 })
-
-
-
-
-
-
-
 
 // Scroll to anchor ID using scrollTO event
 
